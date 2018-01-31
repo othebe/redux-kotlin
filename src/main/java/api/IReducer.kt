@@ -1,5 +1,3 @@
 package api
 
-interface IReducer<S> {
-    fun <T: Enum<*>> reduce(state: S, action: IAction<T, S>)
-}
+interface IReducer<S, in A> : (S, IAction<A, *>) -> S
